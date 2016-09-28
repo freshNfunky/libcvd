@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E489E961D9C745F002CCC17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E489E951D9C745F002CCC17 /* Default-568h@2x.png */; };
 		A361D5CA134DC1A400B594C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361D5C9134DC1A400B594C3 /* UIKit.framework */; };
 		A361D5CC134DC1A400B594C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361D5CB134DC1A400B594C3 /* Foundation.framework */; };
 		A361D5CE134DC1A400B594C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361D5CD134DC1A400B594C3 /* CoreGraphics.framework */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E489E951D9C745F002CCC17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A361D5C5134DC1A400B594C3 /* video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = video.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A361D5C9134DC1A400B594C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A361D5CB134DC1A400B594C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +75,7 @@
 		A361D5BA134DC1A400B594C3 = {
 			isa = PBXGroup;
 			children = (
+				1E489E951D9C745F002CCC17 /* Default-568h@2x.png */,
 				A361D5D3134DC1A400B594C3 /* video */,
 				A361D5C8134DC1A400B594C3 /* Frameworks */,
 				A361D5C6134DC1A400B594C3 /* Products */,
@@ -158,6 +161,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "TU Graz";
+				TargetAttributes = {
+					A361D5C4134DC1A400B594C3 = {
+						DevelopmentTeam = WE3J9L5VM3;
+					};
+				};
 			};
 			buildConfigurationList = A361D5BF134DC1A400B594C3 /* Build configuration list for PBXProject "video" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -182,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A361D5D8134DC1A400B594C3 /* InfoPlist.strings in Resources */,
+				1E489E961D9C745F002CCC17 /* Default-568h@2x.png in Resources */,
 				A361D5E1134DC1A400B594C3 /* MainWindow.xib in Resources */,
 				A361D5EE134DC1A400B594C3 /* videoViewController.xib in Resources */,
 			);
@@ -238,13 +247,17 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -255,10 +268,14 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -269,10 +286,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = WE3J9L5VM3;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "video/video-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "video/video-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -284,9 +303,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = WE3J9L5VM3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "video/video-Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "video/video-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -313,6 +334,7 @@
 				A361D5F3134DC1A400B594C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
