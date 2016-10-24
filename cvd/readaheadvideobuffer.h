@@ -5,19 +5,20 @@
 #include <cvd/config.h>
 #include <cvd/videobuffer.h>
 #include <cvd/internal/concurrency_utilities.h>
+#include <cvd/thread.h>
 #include <atomic>
 
 namespace CVD {
 #ifndef CVD_HAVE_PTHREAD
 #warning ReadAheadVideoBuffer will not do any read-ahead because threads are not supported in this build
-	template <class T> 
+	template <class T>
 		class ReadAheadVideoBuffer : public VideoBuffer<T>
 	{
 		private:
 			VideoBuffer<T>& vbuffer;
 		public:
 			virtual ~ReadAheadVideoBuffer() {}
-			ReadAheadVideoBuffer(VideoBuffer<T>& vb, size_t=10) 
+			ReadAheadVideoBuffer(VideoBuffer<T>& vb, size_t=10)
 				: VideoBuffer<T>(vb.type()),vbuffer(vb) {}
 			/// The size of the VideoFrames returned by this buffer
 			ImageRef size() { return vbuffer.size(); }
@@ -26,7 +27,7 @@ namespace CVD {
 			/// Tell the buffer that you are finished with this frame. Typically the VideoBuffer then destroys the frame.
 			/// \param f The frame that you are finished with.
 			void put_frame(VideoFrame<T>* f) { vbuffer.put_frame(f); }
-			/// Is there a frame waiting in the buffer? This function does not block. 
+			/// Is there a frame waiting in the buffer? This function does not block.
 			bool frame_pending() { return vbuffer.frame_pending(); }
 			/// What is the (expected) frame rate of this video buffer, in frames per second?
 			double frame_rate() { return vbuffer.frame_rate(); }
@@ -34,23 +35,26 @@ namespace CVD {
 			/// \param t The frame time in seconds
 			void seek_to(double t){ vbuffer.seek_to(t); }
 	};
-#else    
+#else
 	/// Decorator video buffer that preloads frames asynchronously in a separate thread.
 	/// @param T The pixel type of the video frames
 	/// @param vb The video buffer to wrap/preload
-	/// @param maxReadAhead The maximum number of frames to read ahead asynchronously; 
+	/// @param maxReadAhead The maximum number of frames to read ahead asynchronously;
 	///                     the underlying VideoBuffer must support this many concurrently existing VideoFrame's
 	/// @ingroup gVideoBuffer
-	template <class T> 
+    typedef enum eCommand
+				{
+                    STOP, FLUSH, PUT, SEEK
+                } eCommand;
+    
+    
+	template <class T>
 		class ReadAheadVideoBuffer : public VideoBuffer<T>, public Runnable
 	{
 		private:
 			struct Command
 			{
-				enum 
-				{
-					STOP, FLUSH, PUT, SEEK
-				} code;
+				eCommand code;
 
 				VideoBuffer<T>* frame;
 				double time;
@@ -67,7 +71,7 @@ namespace CVD {
 			static VideoBufferType::Type type_update(VideoBufferType::Type t)
 			{
 				if(t== VideoBufferType::NotLive)
-					return t; 
+					return t;
 				else
 					return VideoBufferType::Flushable;
 			}
@@ -80,7 +84,7 @@ namespace CVD {
 			}
 
 		public:
-			virtual ~ReadAheadVideoBuffer() 
+			virtual ~ReadAheadVideoBuffer()
 			{
 				returned.push({Command::Stop});
 
@@ -98,17 +102,17 @@ namespace CVD {
 				//Now return the final frame
 				if(vf)
 					vbuffer.put_frame(vf);
-				
+
 			}
-			ReadAheadVideoBuffer(VideoBuffer<T>& vb, size_t maxReadAhead=10) 
-			: VideoBuffer<T>(type_update(vb.type())), 
-			  vbuffer(vb), 
+			ReadAheadVideoBuffer(VideoBuffer<T>& vb, size_t maxReadAhead=10)
+			: VideoBuffer<T>(type_update(vb.type())),
+			  vbuffer(vb),
 			  captured(maxReadAhead)
 			{
 				//Start the thread
 				reader_thread = move(thread([this](){this->run();}));
 			}
-			
+
 
 
 			void run() {
@@ -133,7 +137,7 @@ namespace CVD {
 					VideoFrame<T>* frame = vbuffer.get_frame();
 					captured.push(frame);
 				}
-				
+
 				//At this point, this should be the only thread doing anything
 				//with the buffer since the other thread is waiting in the destructor.
 				done:
@@ -143,19 +147,19 @@ namespace CVD {
 				while(maybe_pop(com))
 					if(com.code == Command::PUT)
 						vbuffer.put_frame(com.frame);
-				
+
 				flush_captured();
 			}
 
 
 			/// The size of the VideoFrames returned by this buffer
-			ImageRef size() 
-			{ 
-				return vbuffer.size(); 
+			ImageRef size()
+			{
+				return vbuffer.size();
 			}
 
 			/// Returns the next frame from the buffer. This function blocks until a frame is ready.
-			VideoFrame<T>* get_frame() 
+			VideoFrame<T>* get_frame()
 			{
 				return captured.pop();
 			}
@@ -165,14 +169,14 @@ namespace CVD {
 			{
 				returned.push({Command::PUT, f});
 			}
-			/// Is there a frame waiting in the buffer? This function does not block. 
+			/// Is there a frame waiting in the buffer? This function does not block.
 			bool frame_pending() {
 				return !captured.empty();
 			}
-			/// What is the (expected) frame rate of this video buffer, in frames per second?		
-			double frame_rate() 
-			{ 
-				return vbuffer.frame_rate(); 
+			/// What is the (expected) frame rate of this video buffer, in frames per second?
+			double frame_rate()
+			{
+				return vbuffer.frame_rate();
 			}
 
 			/// Go to a particular point in the video buffer (only implemented in buffers of recorded video)

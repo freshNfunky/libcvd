@@ -27,3 +27,4 @@
 #define CVD_MAJOR_VERSION 0
 #define CVD_MINOR_VERSION 8
 #endif
+#define _OSX

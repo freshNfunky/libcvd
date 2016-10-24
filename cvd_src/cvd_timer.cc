@@ -52,7 +52,7 @@ double get_time_of_day()
 
 double cvd_timer::conv_ntime(const double & time) const 
 {
-	double start_seconds = time_point_cast<duration<float>>(start).time_since_epoch().count();
+	double start_seconds = time_point_cast<duration<float> >(start).time_since_epoch().count();
 	return time - start_seconds;
 }
 

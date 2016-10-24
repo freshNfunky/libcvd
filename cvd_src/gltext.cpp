@@ -1,7 +1,7 @@
 #include <cvd/gl_helpers.h>
 
 #include <cassert>
-#include <cmath> 
+#include <cmath>
 #include <map>
 
 using namespace std;

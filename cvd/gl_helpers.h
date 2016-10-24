@@ -17,13 +17,19 @@
 #include <windows.h>
 #endif
 
-#ifdef _OSX
+#ifdef __APPLE__
+	#ifndef _OSX
+		#define _OSX
+	#endif
+#endif
+// added preprocessor __APPLE__ because _OSX is not recognized by default.
+//#ifdef _OSX
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
-#else
+/*#else
 #include <GL/gl.h>
 #include <GL/glu.h>
-#endif
+#endif*/
 
 
 
@@ -131,7 +137,7 @@ namespace CVD
 	{
 		glTexCoord4d(v[0], v[1], v[2], v[3]);
 	}
-	
+
 	/// Draws a rectangle by specifing two opposing vertices
 	/// @param p the first vertex
 	/// @param q the second vertex
@@ -521,7 +527,7 @@ namespace CVD
 				if(p&3)
 					if(p&1)
 						return 1;
-					else 
+					else
 						return 2;
 				else
 					if(p&4)

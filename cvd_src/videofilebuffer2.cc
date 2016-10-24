@@ -16,6 +16,11 @@ extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
+
+#if LIBAVCODEC_VERSION_INT > AV_VERSION_INT(55,28,1)
+    #define avcodec_alloc_frame  av_frame_alloc
+#endif
+
 }
 
 #include <string>
@@ -71,18 +76,18 @@ struct PixFmt
 template<>
 struct PixFmt<byte>
 {
-	static PixelFormat get()
+	static AVPixelFormat get()
 	{
-		return PIX_FMT_GRAY8;
+		return AV_PIX_FMT_GRAY8;
 	}
 };
 
 template<>
 struct PixFmt<Rgb<byte> >
 {
-	static PixelFormat get()
+	static AVPixelFormat get()
 	{
-		return PIX_FMT_RGB24;
+		return AV_PIX_FMT_RGB24;
 	}
 };
 
@@ -147,7 +152,7 @@ class VFHolder: public VFHolderBase
 class RawVideoFileBufferPIMPL
 {
 	bool rgb;
-	PixelFormat             output_fmt;
+	AVPixelFormat             output_fmt;
 	AVFormatContext *       input_format_context;
 	struct SwsContext *     image_converter_context;
 
@@ -480,7 +485,7 @@ class RawVideoFileBufferPIMPL
 
 	void load_next_frame()
 	{
-		if(output_fmt == PIX_FMT_GRAY8)
+		if(output_fmt == AV_PIX_FMT_GRAY8)
 			next_frame= read_frame_from_video<byte>();
 		else// if(output_fmt == PIX_FMT_RGB24)
 			next_frame= read_frame_from_video<Rgb<byte> >();
@@ -488,7 +493,7 @@ class RawVideoFileBufferPIMPL
 	
 	void put_frame(void* f)
 	{
-		if(output_fmt == PIX_FMT_GRAY8)
+		if(output_fmt == AV_PIX_FMT_GRAY8)
 			delete static_cast<VideoFileFrame<byte>*>(f);
 		else
 			delete static_cast<VideoFileFrame<Rgb<byte> >*>(f);

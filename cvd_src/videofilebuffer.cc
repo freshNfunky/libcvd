@@ -10,6 +10,18 @@ extern "C" {
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
+
+// Patch deprecated functions for newer FFMPEG version
+#if LIBAVCODEC_VERSION_INT > AV_VERSION_INT(55,28,1)
+    #define avcodec_alloc_frame     av_frame_alloc
+    #define av_open_input_file      avformat_open_input
+    #define av_find_stream_info     avformat_find_stream_info
+    #define av_close_input_file     avformat_close_input
+    #define CVD_INTERNAL_FFMPEG_USE_AVCODEC_DECODE_VIDEO2
+#else
+    #define __LIBAV_DEPRECATED__
+#endif
+    
 }
 
 
@@ -134,12 +146,27 @@ RawVideoFileBufferPIMPL::RawVideoFileBufferPIMPL(const std::string& file, bool r
 		avcodec_register_all();
 	
 		// Now open the video file (and read the header, if present)
-		if(av_open_input_file(&pFormatContext, file.c_str(), NULL, 0, NULL) != 0)
-			throw FileOpen(file, "File could not be opened.");
 		
-		// Read the beginning of the file to get stream information (in case there is no header)
-		if(av_find_stream_info(pFormatContext) < 0)
-			throw FileOpen(file, "Stream information could not be read.");
+        //int avformat_open_input(AVFormatContext **ps, const char *url, AVInputFormat *fmt, AVDictionary **options);
+#ifdef __LIBAV_DEPRECATED__
+        if(av_open_input_file(&pFormatContext, file.c_str(), NULL, 0, NULL) != 0)
+			throw FileOpen(file, "File could not be opened.");
+
+        // Read the beginning of the file to get stream information (in case there is no header)
+        
+        if(av_find_stream_info(pFormatContext) < 0)
+            throw FileOpen(file, "Stream information could not be read.");
+
+        
+#else
+        if(avformat_open_input(&pFormatContext, file.c_str(), NULL, NULL) != 0)
+            throw FileOpen(file, "File could not be opened.");
+
+        if(av_find_stream_info(pFormatContext, NULL) < 0)
+            throw FileOpen(file, "Stream information could not be read.");
+        
+#endif
+        
 		
 		// Dump details of the video to standard error
 		//dump_format(pFormatContext, 0, file.c_str(), false);
@@ -167,7 +194,11 @@ RawVideoFileBufferPIMPL::RawVideoFileBufferPIMPL(const std::string& file, bool r
 		}
 		
 		// Open codec
+#ifdef __LIBAV_DEPRECATED__
 		if(avcodec_open(pCodecContext, pCodec) < 0)
+#else
+        if(avcodec_open2(pCodecContext, pCodec, NULL) < 0)
+#endif
 		{
 			pCodecContext = 0; // Since it's not been opened yet
 			throw FileOpen(file, string(pCodec->name) + " codec could not be initialised.");
@@ -204,7 +235,11 @@ RawVideoFileBufferPIMPL::RawVideoFileBufferPIMPL(const std::string& file, bool r
 	{
 		// Tidy things up on the heap if we failed part-way through constructing
 		if(pFormatContext != 0)
+#ifdef __LIBAV_DEPRECATED__
 		    av_close_input_file(pFormatContext);
+#else
+            avformat_close_input(&pFormatContext);
+#endif
 		
 		if(pCodecContext != 0)
 			avcodec_close(pCodecContext);
@@ -232,7 +267,13 @@ RawVideoFileBufferPIMPL::~RawVideoFileBufferPIMPL()
     av_free(pFrameRGB);
     av_free(pFrame);
     avcodec_close(pCodecContext);
+
+#ifdef __LIBAV_DEPRECATED__
     av_close_input_file(pFormatContext);
+#else
+    avformat_close_input(&pFormatContext);
+#endif
+
 }
 
 
@@ -257,7 +298,7 @@ bool RawVideoFileBufferPIMPL::read_next_frame()
 	}
 
 	//Assign this new memory block 
-	avpicture_fill((AVPicture *)pFrameRGB, data, is_rgb?PIX_FMT_RGB24:PIX_FMT_GRAY8, pCodecContext->width, pCodecContext->height);
+	avpicture_fill((AVPicture *)pFrameRGB, data, is_rgb?AV_PIX_FMT_RGB24:AV_PIX_FMT_GRAY8, pCodecContext->width, pCodecContext->height);
 
 
     AVPacket packet;
@@ -267,7 +308,12 @@ bool RawVideoFileBufferPIMPL::read_next_frame()
 	// How many frames do we read looking for our video stream?
 	// If we assume our streams are interlaced, and some might be interlaced
 	// 2:1, this should probably do
-	const int max_loop = MAX_STREAMS * 2; 
+	
+#ifdef __LIBAV_DEPRECATED__
+    const int max_loop = MAX_STREAMS * 2;
+#else
+    const int max_loop = pFormatContext->nb_streams * 2;
+#endif
 	
 	int i;
 	for(i = 0; packet.stream_index != video_stream && i < max_loop; i++)
@@ -304,7 +350,7 @@ bool RawVideoFileBufferPIMPL::read_next_frame()
 				if(img_convert_ctx == NULL)
 				{
 					img_convert_ctx = sws_getContext(pCodecContext->width, pCodecContext->height, pCodecContext->pix_fmt, //Src format
-													 pCodecContext->width, pCodecContext->height, is_rgb?PIX_FMT_RGB24:PIX_FMT_GRAY8, //Dest format
+													 pCodecContext->width, pCodecContext->height, is_rgb?AV_PIX_FMT_RGB24:AV_PIX_FMT_GRAY8, //Dest format
 													 SWS_POINT, //The nastiest scaler should be OK, since we're not scaling. Right?
 													 NULL, NULL, NULL);
 				}
@@ -439,17 +485,34 @@ void RawVideoFileBufferPIMPL::seek_to(double t)
 		// Seeking is not properly sorted with some codecs
 		// Fudge it by closing the file and starting again, stepping through the frames
 		string file = pFormatContext->filename;
-		av_close_input_file(pFormatContext);
+#ifdef __LIBAV_DEPRECATED__
+        av_close_input_file(pFormatContext);
+#else
+        avformat_close_input(&pFormatContext);
+#endif
 		avcodec_close(pCodecContext);
 		
 		// Now open the video file (and read the header, if present)
-		if(av_open_input_file(&pFormatContext, file.c_str(), NULL, 0, NULL) != 0)
-		  throw FileOpen(file, "File could not be opened.");
-		
-		// Read the beginning of the file to get stream information (in case there is no header)
-		if(av_find_stream_info(pFormatContext) < 0)
-		  throw FileOpen(file, "Stream information could not be read.");
-		
+
+#ifdef __LIBAV_DEPRECATED__
+        if(av_open_input_file(&pFormatContext, file.c_str(), NULL, 0, NULL) != 0)
+            throw FileOpen(file, "File could not be opened.");
+        
+        // Read the beginning of the file to get stream information (in case there is no header)
+        
+        if(av_find_stream_info(pFormatContext) < 0)
+            throw FileOpen(file, "Stream information could not be read.");
+        
+        
+#else
+        if(avformat_open_input(&pFormatContext, file.c_str(), NULL, NULL) != 0)
+            throw FileOpen(file, "File could not be opened.");
+        
+        if(av_find_stream_info(pFormatContext, NULL) < 0)
+            throw FileOpen(file, "Stream information could not be read.");
+        
+#endif
+        
 		// No need to find the stream--we know which one it is (in video_stream)
 		
 		// Get the codec context for this video stream
@@ -464,7 +527,11 @@ void RawVideoFileBufferPIMPL::seek_to(double t)
 		}
 		
 		// Open codec
-		if(avcodec_open(pCodecContext, pCodec) < 0)
+#ifdef __LIBAV_DEPRECATED__
+        if(avcodec_open(pCodecContext, pCodec) < 0)
+#else
+            if(avcodec_open2(pCodecContext, pCodec, NULL) < 0)
+#endif
 		{
 			pCodecContext = 0; // Since it's not been opened yet
 			throw FileOpen(file, string(pCodec->name) + " codec could not be initialised.");

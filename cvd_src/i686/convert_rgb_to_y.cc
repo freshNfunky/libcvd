@@ -15,7 +15,8 @@ namespace CVD
 	{
 		const Rgb<byte>* rgb = from.data();
 		byte* gray = to.data();
-		int count=0;
+        int count=0;
+        ImageRef totalsize = from.size();
 
 		while (!is_aligned<16>(rgb) || !is_aligned<16>(gray)) 
 		{
@@ -24,13 +25,13 @@ namespace CVD
 			gray++;
 			count++;
 		}
+        
+		if (count < totalsize.area())
+			Internal::cvd_asm_rgb_to_gray((const byte*)rgb, gray, (totalsize.area()-count)&3, 77, 150, 29);
 
-		if (count < from.totalsize())
-			Internal::cvd_asm_rgb_to_gray((const byte*)rgb, gray, (from.totalsize()-count)&3, 77, 150, 29);
+		count = (count + totalsize.area()) & 3;
 
-		count = (count + from.totalsize()) & 3;
-
-		for(;count < from.totalsize(); count ++)
+		for(;count < totalsize.area(); count ++)
 			Pixel::CIE<Rgb<byte>,byte>::convert(from.data()[count], to.data()[count]);
     }
 }

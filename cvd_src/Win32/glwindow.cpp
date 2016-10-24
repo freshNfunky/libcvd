@@ -4,7 +4,20 @@
 
 #include <windows.h>
 #include <windowsx.h>
-#include <gl/gl.h>
+
+#ifdef __APPLE__
+	#ifndef _OSX
+		#define _OSX
+	#endif
+#endif
+// added preprocessor __APPLE__ because _OSX is not recognized by default.
+//#ifdef _OSX
+#include <OpenGL/gl.h>
+//#include <OpenGL/glu.h>
+/*#else
+#include <GL/gl.h>
+//#include <GL/glu.h>
+#endif*/
 
 #include <cassert>
 #include <map>
@@ -62,7 +75,7 @@ namespace CVD {
 		WindowRect.bottom=(long)size.y;		// Set Bottom Value To Requested Height
 
 		//fullscreen=fullscreenflag;			// Set The Global Fullscreen Flag
-		// Grab An Instance For Our Window   
+		// Grab An Instance For Our Window
 		HINSTANCE hInstance	= GetModuleHandle(NULL);
 		if(!windowClassRegistered){
 			wc.style			= CS_HREDRAW | CS_VREDRAW | CS_OWNDC;	// Redraw On Size, And Own DC For Window.
@@ -158,7 +171,7 @@ namespace CVD {
 			0,											// Shift Bit Ignored
 			0,											// No Accumulation Buffer
 			0, 0, 0, 0,									// Accumulation Bits Ignored
-			32,											// 32Bit Z-Buffer (Depth Buffer)  
+			32,											// 32Bit Z-Buffer (Depth Buffer)
 			8,											// 8bit Stencil Buffer
 			0,											// No Auxiliary Buffer
 			PFD_MAIN_PLANE,								// Main Drawing Layer
@@ -241,7 +254,7 @@ namespace CVD {
 
 		if(state->hRC){
 			if (wglGetCurrentContext() == state->hRC)
-				if (!wglMakeCurrent(NULL,NULL))	
+				if (!wglMakeCurrent(NULL,NULL))
 					throw Exceptions::GLWindow::RuntimeError("Release of DC and RC failed.");
 			if (!wglDeleteContext(state->hRC))
 				throw Exceptions::GLWindow::RuntimeError("Release Rendering Context failed.");
@@ -274,7 +287,7 @@ namespace CVD {
 			throw Exceptions::GLWindow::RuntimeError("Window is not open.");
 		}
 
-		return state->size; 
+		return state->size;
 	}
 
 	GLWindow::~GLWindow()
@@ -293,12 +306,12 @@ namespace CVD {
 		MoveWindow(state->hWnd, state->position.x + state->position_offset.x, state->position.y + state->position_offset.y, state->size.x + state->size_offset.x, state->size.y + state->size_offset.y, FALSE);
 	}
 
-	ImageRef GLWindow::position() const { 
+	ImageRef GLWindow::position() const {
 		if (state == NULL || state->is_closed) {
 			throw Exceptions::GLWindow::RuntimeError("Window is not open.");
 		}
 
-		return state->position; 
+		return state->position;
 	}
 
 	void GLWindow::set_position(const ImageRef & p_){
@@ -630,11 +643,11 @@ namespace CVD {
 			}
 
 			break;
-		case WM_PAINT: 
+		case WM_PAINT:
 			if(windowMap.count(hWnd) == 1) {
 				GLWindow::State& state = windowMap[hWnd];
 				state.needs_repaint = true;
-				// We don't want to return 0 here, as we don't actually paint anything straight away 
+				// We don't want to return 0 here, as we don't actually paint anything straight away
 				// (and so Windows will keep sending messages until we do).
 			}
 

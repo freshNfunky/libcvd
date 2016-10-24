@@ -11,11 +11,11 @@
 #define TARGET_API_MAC_CARBON 1
 
 #if __APPLE_CC__
-#include <Carbon/Carbon.h>
-#include <QuickTime/QuickTime.h>
+  #include <Carbon/Carbon.h>
+  #include <QuickTime/QuickTime.h>
 #else
-#include <ConditionalMacros.h>
-#include <QuickTimeComponents.h>
+  #include <ConditionalMacros.h>
+  #include <QuickTimeComponents.h>
 #endif
 
 #undef check
@@ -48,7 +48,7 @@ public:
 	unsigned char *		lastFrame;  // pointer to the frame data of the last frame received
 	long				length;     // length of the frame data
 	bool				newFrame;   // do we have a new frame since the last get_frame call?
-	
+
 	static bool isInitialized;  // flag to init Carbon and QuickTime
 
 	static pascal OSErr GrabDataProc(SGChannel c, Ptr p, long len, long *offset, long chRefCon, TimeValue time, short writeType, long refCon);
@@ -66,7 +66,7 @@ pascal OSErr RawQTPimpl::GrabDataProc(SGChannel /* c */, Ptr p, long len, long *
 	return err;
 }
 
-RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, bool showSettingsDialog, bool verbose) : pimpl(NULL) 
+RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, bool showSettingsDialog, bool verbose) : pimpl(NULL)
 {
 	if( !RawQTPimpl::isInitialized ){
 		EnterMovies();
@@ -80,14 +80,14 @@ RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, b
 	pimpl->bounds.bottom = size.y;
 	pimpl->lastFrame = NULL;
 	pimpl->newFrame = false;
-	
+
 	pimpl->seqGrab = OpenDefaultComponent(SeqGrabComponentType, 0);
 	if( pimpl->seqGrab == NULL ){
 		throw Exceptions::QTBUFFER::DeviceOpen("Error opening SequenceGrabber");
 	}
-	
+
 	OSErr err = noErr;
-	
+
 	err = SGInitialize(pimpl->seqGrab);
 	if(err != noErr){
 		throw Exceptions::QTBUFFER::DeviceOpen("SGInitialize returned error");
@@ -105,15 +105,15 @@ RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, b
 	if(err != noErr){
 		throw Exceptions::QTBUFFER::DeviceOpen("SGSetDataRef returned error");
 	}
-	
+
 	err = SGNewChannel(pimpl->seqGrab, VideoMediaType, &pimpl->chanVideo);
 	if(err != noErr){
 		throw Exceptions::QTBUFFER::DeviceOpen("SGNewChannel returned error");
 	}
-	
+
 	if(showSettingsDialog)
 	  {
-	    err = SGSettingsDialog(pimpl->seqGrab, pimpl->chanVideo, 0, NULL, 0L, NULL, 0); 
+	    err = SGSettingsDialog(pimpl->seqGrab, pimpl->chanVideo, 0, NULL, 0L, NULL, 0);
 	    if(err != noErr)
 	      throw Exceptions::QTBUFFER::DeviceOpen("SGSettingsDialog returned an error");
 	  }
@@ -123,7 +123,7 @@ RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, b
 		err = SGGetChannelDeviceList(pimpl->chanVideo, 0, &devices);
 		if(err != noErr)
 			throw Exceptions::QTBUFFER::DeviceOpen("SGGetChannelDeviceList returned an error");
-        
+
 		if(verbose)
 			cout << "QTBuffer available devices:\n";
 		vector<int> allowedDevices;
@@ -136,7 +136,7 @@ RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, b
 		}
 		if(num >= allowedDevices.size())
 			throw Exceptions::QTBUFFER::DeviceOpen("Given device number is not available");
-    
+
 		err = SGSetChannelDevice(pimpl->chanVideo, (*devices)->entry[allowedDevices[num]].name);
 		if(err != noErr)
 			throw Exceptions::QTBUFFER::DeviceOpen("SGSetChannelDevice returned an error");
@@ -155,12 +155,12 @@ RawQT::RawQT(const ImageRef & size, unsigned int /* mode */, unsigned int num, b
 		err = SGSetDataProc(pimpl->seqGrab, NewSGDataUPP(RawQTPimpl::GrabDataProc), (long)pimpl);
 		if(err != noErr)
 			throw Exceptions::QTBUFFER::DeviceOpen("SGSetDataProc returned error");
-		
+
 		// lights...camera...
-		err = SGPrepare(pimpl->seqGrab, false, true);	
+		err = SGPrepare(pimpl->seqGrab, false, true);
 		// ...action
 		err = SGStartRecord(pimpl->seqGrab);
-		
+
 	        // What format are the images?
 		ImageDescriptionHandle imageDesc = (ImageDescriptionHandle)NewHandle(0);
 		err = SGGetChannelSampleDescription(pimpl->chanVideo, (Handle)imageDesc);

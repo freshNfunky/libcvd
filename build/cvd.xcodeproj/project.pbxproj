@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E79E6B01DB8337400D5BC2A /* qtbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6AF1DB8337400D5BC2A /* qtbuffer.cpp */; };
+		1E79E6B21DB8337D00D5BC2A /* videosource_qtbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B11DB8337D00D5BC2A /* videosource_qtbuffer.cc */; };
+		1E79E6B41DB837B100D5BC2A /* gltext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B31DB837B100D5BC2A /* gltext.cpp */; };
+		1E79E6C41DB837D700D5BC2A /* faster_corner_9.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B51DB837D700D5BC2A /* faster_corner_9.cxx */; };
+		1E79E6C51DB837D700D5BC2A /* faster_corner_10.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B61DB837D700D5BC2A /* faster_corner_10.cxx */; };
+		1E79E6C61DB837D700D5BC2A /* faster_corner_12.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B71DB837D700D5BC2A /* faster_corner_12.cxx */; };
+		1E79E6C71DB837D700D5BC2A /* glwindow.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6B91DB837D700D5BC2A /* glwindow.cc */; };
+		1E79E6C81DB837D700D5BC2A /* quartic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6BA1DB837D700D5BC2A /* quartic.cpp */; };
+		1E79E6C91DB837D700D5BC2A /* thread.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6BC1DB837D700D5BC2A /* thread.cc */; };
+		1E79E6CA1DB837D700D5BC2A /* threepointpose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6BD1DB837D700D5BC2A /* threepointpose.cpp */; };
+		1E79E6CB1DB837D700D5BC2A /* videodisplay.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6BE1DB837D700D5BC2A /* videodisplay.cc */; };
+		1E79E6CC1DB837D700D5BC2A /* videofilebuffer_exceptions.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6BF1DB837D700D5BC2A /* videofilebuffer_exceptions.cc */; };
+		1E79E6CD1DB837D700D5BC2A /* videofilebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6C01DB837D700D5BC2A /* videofilebuffer.cc */; };
+		1E79E6CE1DB837D700D5BC2A /* videofilebuffer2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6C11DB837D700D5BC2A /* videofilebuffer2.cc */; };
+		1E79E6CF1DB837D700D5BC2A /* videosource_dvbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6C21DB837D700D5BC2A /* videosource_dvbuffer.cc */; };
+		1E79E6D01DB837D700D5BC2A /* videosource_videofilebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6C31DB837D700D5BC2A /* videosource_videofilebuffer.cc */; };
+		1E79E6D31DB845C800D5BC2A /* yuv420.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A310768C1338150800B72C0C /* yuv420.cpp */; };
+		1E79E6D41DB845CA00D5BC2A /* yuv411_to_stuff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A310768B1338150800B72C0C /* yuv411_to_stuff.cxx */; };
+		1E79E6F01DB845EC00D5BC2A /* convert_rgb_to_y.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6D81DB845EC00D5BC2A /* convert_rgb_to_y.cc */; };
+		1E79E6F31DB845EC00D5BC2A /* convolve_gaussian.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6DB1DB845EC00D5BC2A /* convolve_gaussian.cc */; };
+		1E79E6F91DB845EC00D5BC2A /* gradient.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6E11DB845EC00D5BC2A /* gradient.cc */; };
+		1E79E6FC1DB845EC00D5BC2A /* median_3x3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6E41DB845EC00D5BC2A /* median_3x3.cc */; };
+		1E79E6FF1DB845EC00D5BC2A /* utility_byte_differences.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6E81DB845EC00D5BC2A /* utility_byte_differences.cc */; };
+		1E79E7001DB845EC00D5BC2A /* utility_double_int.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6E91DB845EC00D5BC2A /* utility_double_int.cc */; };
+		1E79E7011DB845EC00D5BC2A /* utility_float.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1E79E6EA1DB845EC00D5BC2A /* utility_float.cc */; };
+		1EAEB5651DB96C55000DD559 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAEB5641DB96C55000DD559 /* Carbon.framework */; };
+		1EAEB5671DB96C89000DD559 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAEB5661DB96C89000DD559 /* OpenGL.framework */; };
+		1EAEB5691DB97400000DD559 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAEB5681DB97400000DD559 /* QuickTime.framework */; };
 		A310768F1338150800B72C0C /* bayer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076031338150800B72C0C /* bayer.cxx */; };
 		A31076901338150800B72C0C /* brezenham.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076041338150800B72C0C /* brezenham.cc */; };
 		A31076911338150800B72C0C /* colourspace_convert.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076051338150800B72C0C /* colourspace_convert.cxx */; };
@@ -17,7 +45,6 @@
 		A31076991338150800B72C0C /* diskbuffer2.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310760D1338150800B72C0C /* diskbuffer2.cc */; };
 		A310769A1338150800B72C0C /* draw.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310760E1338150800B72C0C /* draw.cc */; };
 		A310769B1338150800B72C0C /* draw_toon.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310760F1338150800B72C0C /* draw_toon.cc */; };
-		A310769C1338150800B72C0C /* eventobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A31076101338150800B72C0C /* eventobject.cpp */; };
 		A310769D1338150800B72C0C /* exceptions.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076111338150800B72C0C /* exceptions.cc */; };
 		A310769E1338150800B72C0C /* fast_10_detect.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076131338150800B72C0C /* fast_10_detect.cxx */; };
 		A310769F1338150800B72C0C /* fast_10_score.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076141338150800B72C0C /* fast_10_score.cxx */; };
@@ -35,8 +62,6 @@
 		A31076AC1338150800B72C0C /* fast_corner_9_nonmax.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076211338150800B72C0C /* fast_corner_9_nonmax.cxx */; };
 		A31076B11338150900B72C0C /* globlist.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076261338150800B72C0C /* globlist.cxx */; };
 		A31076D01338150900B72C0C /* image_io.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076471338150800B72C0C /* image_io.cc */; };
-		A31076DB1338150900B72C0C /* videosource_nov4l1buffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076541338150800B72C0C /* videosource_nov4l1buffer.cc */; };
-		A31076DC1338150900B72C0C /* videosource_nov4lbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076551338150800B72C0C /* videosource_nov4lbuffer.cc */; };
 		A31076E01338150900B72C0C /* morphology.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076591338150800B72C0C /* morphology.cc */; };
 		A31076E11338150900B72C0C /* convert_rgb_to_y.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310765B1338150800B72C0C /* convert_rgb_to_y.cc */; };
 		A31076E21338150900B72C0C /* convolve_gaussian.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310765C1338150800B72C0C /* convolve_gaussian.cc */; };
@@ -48,9 +73,7 @@
 		A31076E81338150A00B72C0C /* utility_byte_differences.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076621338150800B72C0C /* utility_byte_differences.cc */; };
 		A31076E91338150A00B72C0C /* utility_double_int.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076631338150800B72C0C /* utility_double_int.cc */; };
 		A31076EA1338150A00B72C0C /* utility_float.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076641338150800B72C0C /* utility_float.cc */; };
-		A31076EB1338150A00B72C0C /* yuv422_wrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076651338150800B72C0C /* yuv422_wrapper.cc */; };
 		A31076EC1338150A00B72C0C /* nonmax_suppression.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076661338150800B72C0C /* nonmax_suppression.cxx */; };
-		A31076ED1338150A00B72C0C /* runnable_batch.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076681338150800B72C0C /* runnable_batch.cc */; };
 		A31076EF1338150A00B72C0C /* videosource_noqtbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310766B1338150800B72C0C /* videosource_noqtbuffer.cc */; };
 		A31076F41338150A00B72C0C /* slower_corner_10.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076711338150800B72C0C /* slower_corner_10.cxx */; };
 		A31076F51338150A00B72C0C /* slower_corner_11.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076721338150800B72C0C /* slower_corner_11.cxx */; };
@@ -60,17 +83,10 @@
 		A31076F91338150A00B72C0C /* slower_corner_9.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A31076761338150800B72C0C /* slower_corner_9.cxx */; };
 		A31076FB1338150A00B72C0C /* synchronized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A31076791338150800B72C0C /* synchronized.cpp */; };
 		A31076FC1338150A00B72C0C /* tensor_voting.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310767A1338150800B72C0C /* tensor_voting.cc */; };
-		A31076FD1338150A00B72C0C /* runnable_batch.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310767C1338150800B72C0C /* runnable_batch.cc */; };
-		A31076FE1338150A00B72C0C /* thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A310767D1338150800B72C0C /* thread.cpp */; };
 		A31076FF1338150A00B72C0C /* timeddiskbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A310767E1338150800B72C0C /* timeddiskbuffer.cc */; };
 		A31077031338150B00B72C0C /* videosource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A31076821338150800B72C0C /* videosource.cpp */; };
 		A31077051338150B00B72C0C /* videosource_nodvbuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076841338150800B72C0C /* videosource_nodvbuffer.cc */; };
 		A31077061338150B00B72C0C /* videosource_novideofilebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = A31076851338150800B72C0C /* videosource_novideofilebuffer.cc */; };
-		A310770B1338150B00B72C0C /* yuv411_to_stuff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A310768B1338150800B72C0C /* yuv411_to_stuff.cxx */; };
-		A310770C1338150B00B72C0C /* yuv420.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A310768C1338150800B72C0C /* yuv420.cpp */; };
-		A310770D1338150B00B72C0C /* yuv422.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A310768D1338150800B72C0C /* yuv422.cpp */; };
-		A34E615D137ADCC000AFD115 /* convert_rgb_to_y.cc in Sources */ = {isa = PBXBuildFile; fileRef = A34E615B137ADCC000AFD115 /* convert_rgb_to_y.cc */; };
-		A34E615E137ADCC000AFD115 /* half_sample.cc in Sources */ = {isa = PBXBuildFile; fileRef = A34E615C137ADCC000AFD115 /* half_sample.cc */; };
 		A359B53E168B6622002D12CF /* bmp.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A359B522168B6622002D12CF /* bmp.cxx */; };
 		A359B540168B6622002D12CF /* bmp_read.cc in Sources */ = {isa = PBXBuildFile; fileRef = A359B524168B6622002D12CF /* bmp_read.cc */; };
 		A359B542168B6622002D12CF /* bmp_write.cc in Sources */ = {isa = PBXBuildFile; fileRef = A359B526168B6622002D12CF /* bmp_write.cc */; };
@@ -84,6 +100,52 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E79E6AF1DB8337400D5BC2A /* qtbuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = qtbuffer.cpp; sourceTree = "<group>"; };
+		1E79E6B11DB8337D00D5BC2A /* videosource_qtbuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videosource_qtbuffer.cc; sourceTree = "<group>"; };
+		1E79E6B31DB837B100D5BC2A /* gltext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gltext.cpp; sourceTree = "<group>"; };
+		1E79E6B51DB837D700D5BC2A /* faster_corner_9.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = faster_corner_9.cxx; sourceTree = "<group>"; };
+		1E79E6B61DB837D700D5BC2A /* faster_corner_10.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = faster_corner_10.cxx; sourceTree = "<group>"; };
+		1E79E6B71DB837D700D5BC2A /* faster_corner_12.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = faster_corner_12.cxx; sourceTree = "<group>"; };
+		1E79E6B81DB837D700D5BC2A /* faster_corner_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = faster_corner_utilities.h; sourceTree = "<group>"; };
+		1E79E6B91DB837D700D5BC2A /* glwindow.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glwindow.cc; sourceTree = "<group>"; };
+		1E79E6BA1DB837D700D5BC2A /* quartic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quartic.cpp; sourceTree = "<group>"; };
+		1E79E6BB1DB837D700D5BC2A /* quartic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quartic.h; sourceTree = "<group>"; };
+		1E79E6BC1DB837D700D5BC2A /* thread.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread.cc; sourceTree = "<group>"; };
+		1E79E6BD1DB837D700D5BC2A /* threepointpose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = threepointpose.cpp; sourceTree = "<group>"; };
+		1E79E6BE1DB837D700D5BC2A /* videodisplay.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videodisplay.cc; sourceTree = "<group>"; };
+		1E79E6BF1DB837D700D5BC2A /* videofilebuffer_exceptions.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videofilebuffer_exceptions.cc; sourceTree = "<group>"; };
+		1E79E6C01DB837D700D5BC2A /* videofilebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videofilebuffer.cc; sourceTree = "<group>"; };
+		1E79E6C11DB837D700D5BC2A /* videofilebuffer2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videofilebuffer2.cc; sourceTree = "<group>"; };
+		1E79E6C21DB837D700D5BC2A /* videosource_dvbuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videosource_dvbuffer.cc; sourceTree = "<group>"; };
+		1E79E6C31DB837D700D5BC2A /* videosource_videofilebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = videosource_videofilebuffer.cc; sourceTree = "<group>"; };
+		1E79E6D51DB845EC00D5BC2A /* byte_to_double_gradient.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = byte_to_double_gradient.s; sourceTree = "<group>"; };
+		1E79E6D61DB845EC00D5BC2A /* byte_to_float_gradient.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = byte_to_float_gradient.s; sourceTree = "<group>"; };
+		1E79E6D71DB845EC00D5BC2A /* byte_to_short_difference.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = byte_to_short_difference.s; sourceTree = "<group>"; };
+		1E79E6D81DB845EC00D5BC2A /* convert_rgb_to_y.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convert_rgb_to_y.cc; sourceTree = "<group>"; };
+		1E79E6D91DB845EC00D5BC2A /* convolve_float.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = convolve_float.s; sourceTree = "<group>"; };
+		1E79E6DA1DB845EC00D5BC2A /* convolve_float4.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = convolve_float4.s; sourceTree = "<group>"; };
+		1E79E6DB1DB845EC00D5BC2A /* convolve_gaussian.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convolve_gaussian.cc; sourceTree = "<group>"; };
+		1E79E6DC1DB845EC00D5BC2A /* float_add_mul_add_unaligned.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = float_add_mul_add_unaligned.s; sourceTree = "<group>"; };
+		1E79E6DD1DB845EC00D5BC2A /* float_add_mul_add.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = float_add_mul_add.s; sourceTree = "<group>"; };
+		1E79E6DE1DB845EC00D5BC2A /* float_assign_mul.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = float_assign_mul.s; sourceTree = "<group>"; };
+		1E79E6DF1DB845EC00D5BC2A /* float_difference.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = float_difference.s; sourceTree = "<group>"; };
+		1E79E6E01DB845EC00D5BC2A /* float_innerproduct.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = float_innerproduct.s; sourceTree = "<group>"; };
+		1E79E6E11DB845EC00D5BC2A /* gradient.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gradient.cc; sourceTree = "<group>"; };
+		1E79E6E21DB845EC00D5BC2A /* halfsample.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = halfsample.s; sourceTree = "<group>"; };
+		1E79E6E31DB845EC00D5BC2A /* int_difference.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = int_difference.s; sourceTree = "<group>"; };
+		1E79E6E41DB845EC00D5BC2A /* median_3x3.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = median_3x3.cc; sourceTree = "<group>"; };
+		1E79E6E51DB845EC00D5BC2A /* rgb_to_gray.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = rgb_to_gray.s; sourceTree = "<group>"; };
+		1E79E6E61DB845EC00D5BC2A /* short_difference.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = short_difference.s; sourceTree = "<group>"; };
+		1E79E6E71DB845EC00D5BC2A /* testconf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testconf; sourceTree = "<group>"; };
+		1E79E6E81DB845EC00D5BC2A /* utility_byte_differences.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility_byte_differences.cc; sourceTree = "<group>"; };
+		1E79E6E91DB845EC00D5BC2A /* utility_double_int.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility_double_int.cc; sourceTree = "<group>"; };
+		1E79E6EA1DB845EC00D5BC2A /* utility_float.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utility_float.cc; sourceTree = "<group>"; };
+		1E79E6EB1DB845EC00D5BC2A /* yuv411_to_stuff_MMX_64.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = yuv411_to_stuff_MMX_64.C; sourceTree = "<group>"; };
+		1E79E6EC1DB845EC00D5BC2A /* yuv411_to_stuff_MMX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = yuv411_to_stuff_MMX.C; sourceTree = "<group>"; };
+		1EAEB5621DB96C49000DD559 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = ../../../../../System/Library/Frameworks/QuickTime.framework; sourceTree = "<group>"; };
+		1EAEB5641DB96C55000DD559 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Carbon.framework; sourceTree = DEVELOPER_DIR; };
+		1EAEB5661DB96C89000DD559 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		1EAEB5681DB97400000DD559 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/QuickTime.framework; sourceTree = DEVELOPER_DIR; };
 		A31074EF133814AE00B72C0C /* libcvd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcvd.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3107500133814EA00B72C0C /* abs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = abs.h; sourceTree = "<group>"; };
 		A3107501133814EA00B72C0C /* argb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = argb.h; sourceTree = "<group>"; };
@@ -301,6 +363,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EAEB5691DB97400000DD559 /* QuickTime.framework in Frameworks */,
+				1EAEB5671DB96C89000DD559 /* OpenGL.framework in Frameworks */,
+				1EAEB5651DB96C55000DD559 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +394,10 @@
 		A31074F1133814AE00B72C0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EAEB5681DB97400000DD559 /* QuickTime.framework */,
+				1EAEB5661DB96C89000DD559 /* OpenGL.framework */,
+				1EAEB5641DB96C55000DD559 /* Carbon.framework */,
+				1EAEB5621DB96C49000DD559 /* QuickTime.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -533,6 +602,22 @@
 		A31076021338150800B72C0C /* cvd_src */ = {
 			isa = PBXGroup;
 			children = (
+				1E79E6B51DB837D700D5BC2A /* faster_corner_9.cxx */,
+				1E79E6B61DB837D700D5BC2A /* faster_corner_10.cxx */,
+				1E79E6B71DB837D700D5BC2A /* faster_corner_12.cxx */,
+				1E79E6B81DB837D700D5BC2A /* faster_corner_utilities.h */,
+				1E79E6B91DB837D700D5BC2A /* glwindow.cc */,
+				1E79E6BA1DB837D700D5BC2A /* quartic.cpp */,
+				1E79E6BB1DB837D700D5BC2A /* quartic.h */,
+				1E79E6BC1DB837D700D5BC2A /* thread.cc */,
+				1E79E6BD1DB837D700D5BC2A /* threepointpose.cpp */,
+				1E79E6BE1DB837D700D5BC2A /* videodisplay.cc */,
+				1E79E6BF1DB837D700D5BC2A /* videofilebuffer_exceptions.cc */,
+				1E79E6C01DB837D700D5BC2A /* videofilebuffer.cc */,
+				1E79E6C11DB837D700D5BC2A /* videofilebuffer2.cc */,
+				1E79E6C21DB837D700D5BC2A /* videosource_dvbuffer.cc */,
+				1E79E6C31DB837D700D5BC2A /* videosource_videofilebuffer.cc */,
+				1E79E6B31DB837B100D5BC2A /* gltext.cpp */,
 				A359B521168B6622002D12CF /* image_io */,
 				A34E615A137ADCC000AFD115 /* NEON */,
 				A31076031338150800B72C0C /* bayer.cxx */,
@@ -615,6 +700,30 @@
 		A310762A1338150800B72C0C /* i686 */ = {
 			isa = PBXGroup;
 			children = (
+				1E79E6D51DB845EC00D5BC2A /* byte_to_double_gradient.s */,
+				1E79E6D61DB845EC00D5BC2A /* byte_to_float_gradient.s */,
+				1E79E6D71DB845EC00D5BC2A /* byte_to_short_difference.s */,
+				1E79E6D81DB845EC00D5BC2A /* convert_rgb_to_y.cc */,
+				1E79E6D91DB845EC00D5BC2A /* convolve_float.s */,
+				1E79E6DA1DB845EC00D5BC2A /* convolve_float4.s */,
+				1E79E6DB1DB845EC00D5BC2A /* convolve_gaussian.cc */,
+				1E79E6DC1DB845EC00D5BC2A /* float_add_mul_add_unaligned.s */,
+				1E79E6DD1DB845EC00D5BC2A /* float_add_mul_add.s */,
+				1E79E6DE1DB845EC00D5BC2A /* float_assign_mul.s */,
+				1E79E6DF1DB845EC00D5BC2A /* float_difference.s */,
+				1E79E6E01DB845EC00D5BC2A /* float_innerproduct.s */,
+				1E79E6E11DB845EC00D5BC2A /* gradient.cc */,
+				1E79E6E21DB845EC00D5BC2A /* halfsample.s */,
+				1E79E6E31DB845EC00D5BC2A /* int_difference.s */,
+				1E79E6E41DB845EC00D5BC2A /* median_3x3.cc */,
+				1E79E6E51DB845EC00D5BC2A /* rgb_to_gray.s */,
+				1E79E6E61DB845EC00D5BC2A /* short_difference.s */,
+				1E79E6E71DB845EC00D5BC2A /* testconf */,
+				1E79E6E81DB845EC00D5BC2A /* utility_byte_differences.cc */,
+				1E79E6E91DB845EC00D5BC2A /* utility_double_int.cc */,
+				1E79E6EA1DB845EC00D5BC2A /* utility_float.cc */,
+				1E79E6EB1DB845EC00D5BC2A /* yuv411_to_stuff_MMX_64.C */,
+				1E79E6EC1DB845EC00D5BC2A /* yuv411_to_stuff_MMX.C */,
 			);
 			path = i686;
 			sourceTree = "<group>";
@@ -657,6 +766,8 @@
 		A31076691338150800B72C0C /* OSX */ = {
 			isa = PBXGroup;
 			children = (
+				1E79E6B11DB8337D00D5BC2A /* videosource_qtbuffer.cc */,
+				1E79E6AF1DB8337400D5BC2A /* qtbuffer.cpp */,
 				A310766B1338150800B72C0C /* videosource_noqtbuffer.cc */,
 			);
 			path = OSX;
@@ -789,6 +900,7 @@
 				A310768F1338150800B72C0C /* bayer.cxx in Sources */,
 				A31076901338150800B72C0C /* brezenham.cc in Sources */,
 				A31076911338150800B72C0C /* colourspace_convert.cxx in Sources */,
+				1E79E6FF1DB845EC00D5BC2A /* utility_byte_differences.cc in Sources */,
 				A31076921338150800B72C0C /* connected_components.cc in Sources */,
 				A31076931338150800B72C0C /* convolution.cc in Sources */,
 				A31076971338150800B72C0C /* cvd_timer.cc in Sources */,
@@ -796,14 +908,17 @@
 				A31076991338150800B72C0C /* diskbuffer2.cc in Sources */,
 				A310769A1338150800B72C0C /* draw.cc in Sources */,
 				A310769B1338150800B72C0C /* draw_toon.cc in Sources */,
-				A310769C1338150800B72C0C /* eventobject.cpp in Sources */,
 				A310769D1338150800B72C0C /* exceptions.cc in Sources */,
 				A310769E1338150800B72C0C /* fast_10_detect.cxx in Sources */,
+				1E79E6B01DB8337400D5BC2A /* qtbuffer.cpp in Sources */,
 				A310769F1338150800B72C0C /* fast_10_score.cxx in Sources */,
+				1E79E6B41DB837B100D5BC2A /* gltext.cpp in Sources */,
 				A31076A01338150800B72C0C /* fast_11_detect.cxx in Sources */,
 				A31076A11338150800B72C0C /* fast_11_score.cxx in Sources */,
 				A31076A21338150800B72C0C /* fast_12_detect.cxx in Sources */,
+				1E79E6CC1DB837D700D5BC2A /* videofilebuffer_exceptions.cc in Sources */,
 				A31076A31338150800B72C0C /* fast_12_score.cxx in Sources */,
+				1E79E6C61DB837D700D5BC2A /* faster_corner_12.cxx in Sources */,
 				A31076A41338150800B72C0C /* fast_7_detect.cxx in Sources */,
 				A31076A51338150800B72C0C /* fast_7_score.cxx in Sources */,
 				A31076A61338150800B72C0C /* fast_8_detect.cxx in Sources */,
@@ -812,53 +927,62 @@
 				A31076A91338150800B72C0C /* fast_9_score.cxx in Sources */,
 				A31076AB1338150800B72C0C /* fast_corner.cxx in Sources */,
 				A31076AC1338150800B72C0C /* fast_corner_9_nonmax.cxx in Sources */,
+				1E79E6D01DB837D700D5BC2A /* videosource_videofilebuffer.cc in Sources */,
 				A31076B11338150900B72C0C /* globlist.cxx in Sources */,
+				1E79E6CF1DB837D700D5BC2A /* videosource_dvbuffer.cc in Sources */,
 				A31076D01338150900B72C0C /* image_io.cc in Sources */,
-				A31076DB1338150900B72C0C /* videosource_nov4l1buffer.cc in Sources */,
-				A31076DC1338150900B72C0C /* videosource_nov4lbuffer.cc in Sources */,
+				1E79E6F01DB845EC00D5BC2A /* convert_rgb_to_y.cc in Sources */,
 				A31076E01338150900B72C0C /* morphology.cc in Sources */,
 				A31076E11338150900B72C0C /* convert_rgb_to_y.cc in Sources */,
 				A31076E21338150900B72C0C /* convolve_gaussian.cc in Sources */,
 				A31076E31338150900B72C0C /* default_memalign.cpp in Sources */,
 				A31076E41338150900B72C0C /* gradient.cc in Sources */,
 				A31076E51338150900B72C0C /* median_3x3.cc in Sources */,
+				1E79E7011DB845EC00D5BC2A /* utility_float.cc in Sources */,
 				A31076E61338150900B72C0C /* posix_memalign.cpp in Sources */,
+				1E79E6F31DB845EC00D5BC2A /* convolve_gaussian.cc in Sources */,
+				1E79E6C71DB837D700D5BC2A /* glwindow.cc in Sources */,
 				A31076E71338150900B72C0C /* two_thirds_sample.cc in Sources */,
+				1E79E6F91DB845EC00D5BC2A /* gradient.cc in Sources */,
 				A31076E81338150A00B72C0C /* utility_byte_differences.cc in Sources */,
 				A31076E91338150A00B72C0C /* utility_double_int.cc in Sources */,
+				1E79E7001DB845EC00D5BC2A /* utility_double_int.cc in Sources */,
 				A31076EA1338150A00B72C0C /* utility_float.cc in Sources */,
-				A31076EB1338150A00B72C0C /* yuv422_wrapper.cc in Sources */,
+				1E79E6C41DB837D700D5BC2A /* faster_corner_9.cxx in Sources */,
+				1E79E6CB1DB837D700D5BC2A /* videodisplay.cc in Sources */,
 				A31076EC1338150A00B72C0C /* nonmax_suppression.cxx in Sources */,
-				A31076ED1338150A00B72C0C /* runnable_batch.cc in Sources */,
+				1E79E6CE1DB837D700D5BC2A /* videofilebuffer2.cc in Sources */,
 				A31076EF1338150A00B72C0C /* videosource_noqtbuffer.cc in Sources */,
 				A31076F41338150A00B72C0C /* slower_corner_10.cxx in Sources */,
 				A31076F51338150A00B72C0C /* slower_corner_11.cxx in Sources */,
 				A31076F61338150A00B72C0C /* slower_corner_12.cxx in Sources */,
 				A31076F71338150A00B72C0C /* slower_corner_7.cxx in Sources */,
 				A31076F81338150A00B72C0C /* slower_corner_8.cxx in Sources */,
+				1E79E6C81DB837D700D5BC2A /* quartic.cpp in Sources */,
 				A31076F91338150A00B72C0C /* slower_corner_9.cxx in Sources */,
 				A31076FB1338150A00B72C0C /* synchronized.cpp in Sources */,
 				A31076FC1338150A00B72C0C /* tensor_voting.cc in Sources */,
-				A31076FD1338150A00B72C0C /* runnable_batch.cc in Sources */,
-				A31076FE1338150A00B72C0C /* thread.cpp in Sources */,
 				A31076FF1338150A00B72C0C /* timeddiskbuffer.cc in Sources */,
 				A31077031338150B00B72C0C /* videosource.cpp in Sources */,
+				1E79E6C51DB837D700D5BC2A /* faster_corner_10.cxx in Sources */,
 				A31077051338150B00B72C0C /* videosource_nodvbuffer.cc in Sources */,
 				A31077061338150B00B72C0C /* videosource_novideofilebuffer.cc in Sources */,
-				A310770B1338150B00B72C0C /* yuv411_to_stuff.cxx in Sources */,
-				A310770C1338150B00B72C0C /* yuv420.cpp in Sources */,
-				A310770D1338150B00B72C0C /* yuv422.cpp in Sources */,
-				A34E615D137ADCC000AFD115 /* convert_rgb_to_y.cc in Sources */,
-				A34E615E137ADCC000AFD115 /* half_sample.cc in Sources */,
 				A359B53E168B6622002D12CF /* bmp.cxx in Sources */,
 				A359B540168B6622002D12CF /* bmp_read.cc in Sources */,
 				A359B542168B6622002D12CF /* bmp_write.cc in Sources */,
 				A359B544168B6622002D12CF /* cvdimage.cxx in Sources */,
+				1E79E6D31DB845C800D5BC2A /* yuv420.cpp in Sources */,
 				A359B546168B6622002D12CF /* fits.cc in Sources */,
 				A359B548168B6622002D12CF /* fitswrite.cc in Sources */,
+				1E79E6D41DB845CA00D5BC2A /* yuv411_to_stuff.cxx in Sources */,
 				A359B54E168B6622002D12CF /* pnm_grok.cxx in Sources */,
 				A359B550168B6622002D12CF /* save_postscript.cxx in Sources */,
+				1E79E6CD1DB837D700D5BC2A /* videofilebuffer.cc in Sources */,
+				1E79E6B21DB8337D00D5BC2A /* videosource_qtbuffer.cc in Sources */,
+				1E79E6CA1DB837D700D5BC2A /* threepointpose.cpp in Sources */,
 				A359B552168B6622002D12CF /* text.cxx in Sources */,
+				1E79E6C91DB837D700D5BC2A /* thread.cc in Sources */,
+				1E79E6FC1DB845EC00D5BC2A /* median_3x3.cc in Sources */,
 				A359B554168B6622002D12CF /* text_write.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -869,10 +993,23 @@
 		A31074E61338147400B72C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/X11/include,
+					/System/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/X11/lib,
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/opt/X11/include",
+					"-I/usr/local/include",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -880,10 +1017,23 @@
 		A31074E71338147400B72C0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/X11/include,
+					/System/Library/Frameworks,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/X11/lib,
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/opt/X11/include",
+					"-I/usr/local/include",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -892,7 +1042,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/cvd.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -912,7 +1062,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx10.11;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
@@ -920,7 +1071,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/cvd.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -939,7 +1090,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx10.11;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
 		};
