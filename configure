@@ -5937,8 +5937,8 @@ fi
 $as_echo "$ac_cv_file__opt_local" >&6; }
 if test "x$ac_cv_file__opt_local" = xyes; then :
 
-		CPPFLAGS="$CPPFLAGS -I/opt/local/include"
-		LIBS="$LIBS -L/opt/local/lib"
+		CPPFLAGS="$CPPFLAGS -I/usr/local/include"
+		LIBS="$LIBS -L/usr/local/lib"
 fi
 
 	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /sw" >&5
@@ -5962,9 +5962,9 @@ if test "x$ac_cv_file__sw" = xyes; then :
 		LIBS="$LIBS -L/sw/lib"
 fi
 
-	CPPFLAGS="$CPPFLAGS -I/usr/X11R6/include"
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: Adding /usr/X11R6/include to the build path." >&5
-$as_echo "$as_me: Adding /usr/X11R6/include to the build path." >&6;}
+	CPPFLAGS="$CPPFLAGS -I/opt/X11/include"
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: Adding /opt/X11R6/include to the build path." >&5
+$as_echo "$as_me: Adding /opt/X11/include to the build path." >&6;}
 	osx_hacks=yes
 
 	os_all_options="qtbuffer dc1394v2"
@@ -6422,7 +6422,7 @@ fi
 	then
 		save_LIBS="$LIBS"
 
-		LIBS="$LIBS  -framework OpenGL /usr/X11R6/lib/libX11.dylib /usr/X11R6/lib/libGLU.dylib /usr/X11R6/lib/libGL.dylib"
+		LIBS="$LIBS  -framework OpenGL /opt/X11/lib/libX11.dylib /opt/X11/lib/libGLU.dylib /opt/X11/lib/libGL.dylib"
 		# all of the following is already covered in the framework
 		# AC_CHECK_LIB(GL,glDrawPixels, [], [a=1])
 		# AC_CHECK_HEADERS(GL/glu.h, [], [a=1])
@@ -6521,7 +6521,7 @@ fi
 ac_x_header_dirs='
 /usr/X11/include
 /usr/X11R7/include
-/usr/X11R6/include
+/opt/X11/include
 /usr/X11R5/include
 /usr/X11R4/include
 
@@ -10243,4 +10243,3 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
-

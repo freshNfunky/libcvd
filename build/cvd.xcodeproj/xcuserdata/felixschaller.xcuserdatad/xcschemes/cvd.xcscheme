@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A31074EE133814AE00B72C0C"
-               BuildableName = "libcvd.a"
-               BlueprintName = "cvd"
+               BuildableName = "libcvd_i386.a"
+               BlueprintName = "cvd_i386"
                ReferencedContainer = "container:cvd.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A31074EE133814AE00B72C0C"
-            BuildableName = "libcvd.a"
-            BlueprintName = "cvd"
+            BuildableName = "libcvd_i386.a"
+            BlueprintName = "cvd_i386"
             ReferencedContainer = "container:cvd.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A31074EE133814AE00B72C0C"
-            BuildableName = "libcvd.a"
-            BlueprintName = "cvd"
+            BuildableName = "libcvd_i386.a"
+            BlueprintName = "cvd_i386"
             ReferencedContainer = "container:cvd.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

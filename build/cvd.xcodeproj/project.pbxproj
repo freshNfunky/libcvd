@@ -831,9 +831,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A31074EE133814AE00B72C0C /* cvd */ = {
+		A31074EE133814AE00B72C0C /* cvd_i386 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A31074F9133814AE00B72C0C /* Build configuration list for PBXNativeTarget "cvd" */;
+			buildConfigurationList = A31074F9133814AE00B72C0C /* Build configuration list for PBXNativeTarget "cvd_i386" */;
 			buildPhases = (
 				A34E6175137AE82D00AFD115 /* ShellScript */,
 				A31074EB133814AE00B72C0C /* Sources */,
@@ -843,7 +843,7 @@
 			);
 			dependencies = (
 			);
-			name = cvd;
+			name = cvd_i386;
 			productName = cvd;
 			productReference = A31074EF133814AE00B72C0C /* libcvd.a */;
 			productType = "com.apple.product-type.library.static";
@@ -869,7 +869,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A31074EE133814AE00B72C0C /* cvd */,
+				A31074EE133814AE00B72C0C /* cvd_i386 */,
 			);
 		};
 /* End PBXProject section */
@@ -1059,6 +1059,7 @@
 					../..,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1087,6 +1088,7 @@
 					../..,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1107,7 +1109,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A31074F9133814AE00B72C0C /* Build configuration list for PBXNativeTarget "cvd" */ = {
+		A31074F9133814AE00B72C0C /* Build configuration list for PBXNativeTarget "cvd_i386" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A31074F7133814AE00B72C0C /* Debug */,
